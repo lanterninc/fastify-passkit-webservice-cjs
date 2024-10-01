@@ -3,7 +3,7 @@
 	"version": "2.0.1",
 	"description": "Hybrid CJS/ESM package for fastify-passkit-webservice",
 	"main": "./lib/index.cjs",
-	"module": "./lib/index.js",
+	"module": "./lib/index.mjs",
 	"types": "./lib/index.d.ts",
 	"scripts": {
 		"build": "tsup",
@@ -33,18 +33,5 @@
 	},
 	"dependencies": {
 		"passkit-webservice-toolkit": "^1.0.3"
-	},
-	"exports": {
-		"import": {
-			"types": "./lib/index.d.ts",
-			"import": "./lib/index.js"
-		},
-		"require": {
-			"types": "./lib/index.d.cts",
-			"require": "./lib/index.cjs"
-		}
-	},
-	"files": [
-		"lib/**/*.+(*js|d.ts)!(*.map)"
-	]
+	}
 }
