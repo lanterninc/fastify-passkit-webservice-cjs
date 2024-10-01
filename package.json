@@ -1,6 +1,6 @@
 {
 	"name": "fastify-passkit-webservice-hybrid",
-	"version": "2.0.2",
+	"version": "2.0.3",
 	"description": "Hybrid CJS/ESM package for fastify-passkit-webservice",
 	"main": "lib/index.cjs",
 	"module": "lib/index.mjs",
