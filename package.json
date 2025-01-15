@@ -1,9 +1,12 @@
 {
-	"name": "fastify-passkit-webservice",
-	"version": "1.4.0",
-	"description": "",
+	"name": "fastify-passkit-webservice-hybrid",
+	"version": "1.0.0",
+	"description": "Hybrid CJS/ESM package for fastify-passkit-webservice",
+	"main": "./lib/index.cjs",
+	"module": "./lib/index.js",
+	"types": "./lib/index.d.ts",
 	"scripts": {
-		"build": "rm -rf lib && pnpm tsc",
+		"build": "tsup",
 		"test": "pnpm build && pnpm test:prepare && node --test && pnpm test:cleanup",
 		"test:prepare": "pnpm link .",
 		"test:cleanup": "pnpm unlink fastify-passkit-webservice",
@@ -19,6 +22,7 @@
 		"fastify": "^5.1.0",
 		"passkit-generator": "^3.1.11",
 		"prettier": "^3.1.0",
+		"tsup": "^8.3.0",
 		"typescript": "^5.3.2"
 	},
 	"peerDependencies": {
@@ -31,9 +35,14 @@
 		"passkit-webservice-toolkit": "^1.0.3"
 	},
 	"exports": {
-		".": "./lib/index.js",
-		"./v1": "./lib/plugins/v1/index.js",
-		"./v1/*": "./lib/plugins/v1/*"
+		"import": {
+			"types": "./lib/index.d.ts",
+			"import": "./lib/index.js"
+		},
+		"require": {
+			"types": "./lib/index.d.cts",
+			"require": "./lib/index.cjs"
+		}
 	},
 	"files": [
 		"lib/**/*.+(js|d.ts)!(*.map)"
